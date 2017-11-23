@@ -1,6 +1,6 @@
 -- Безработные 
 
-INSERT INTO unemployed(first_name, last_name, second_name, sex, birthdate, address, phone, married, has_children) (
+INSERT INTO unemployed(first_name, last_name, second_name, sex, birthdate, address, phone, married, has_children) VALUES (
 	'Иван',
 	'Иванов',
 	'Иванович',
@@ -12,7 +12,7 @@ INSERT INTO unemployed(first_name, last_name, second_name, sex, birthdate, addre
 	1
 );
 
-INSERT INTO unemployed(first_name, last_name, second_name, sex, birthdate, address, phone, married, has_children) (
+INSERT INTO unemployed(first_name, last_name, second_name, sex, birthdate, address, phone, married, has_children) VALUES (
 	'Марина',
 	'Иванова',
 	'Геннадьевна',
@@ -24,7 +24,7 @@ INSERT INTO unemployed(first_name, last_name, second_name, sex, birthdate, addre
 	1
 );
 
-INSERT INTO unemployed(first_name, last_name, second_name, sex, birthdate, address, phone, married, has_children) (
+INSERT INTO unemployed(first_name, last_name, second_name, sex, birthdate, address, phone, married, has_children) VALUES (
 	'Виктор',
 	'Петров',
 	'Семенович',
@@ -38,55 +38,55 @@ INSERT INTO unemployed(first_name, last_name, second_name, sex, birthdate, addre
 
 -- Учебные заведения
 
-INSERT INTO edu_inst(title) (
+INSERT INTO edu_inst(title) VALUES (
 	'МБОУ СШ №35'
 );
 
-INSERT INTO edu_inst(title) (
+INSERT INTO edu_inst(title) VALUES (
 	'Университет Всего И Вся'
 );
 
-INSERT INTO edu_inst(title) (
+INSERT INTO edu_inst(title) VALUES (
 	'САФУ'
 );
 
 -- Компании
 
-INSERT INTO companies(company_title) (
+INSERT INTO companies(company_title) VALUES (
 	'Почта России'
 );
 
-INSERT INTO companies(company_title) (
+INSERT INTO companies(company_title) VALUES (
 	'Росстат'
 );
 
-INSERT INTO companies(company_title) (
+INSERT INTO companies(company_title) VALUES (
 	'СЭС'
 );
 
-INSERT INTO companies(company_title) (
+INSERT INTO companies(company_title) VALUES (
 	'Мерия'
 );
 
 -- Профессии
 
-INSERT INTO professions(profession) (
+INSERT INTO professions(profession) VALUES (
 	'Логист'
 );
 
-INSERT INTO professions(profession) (
+INSERT INTO professions(profession) VALUES (
 	'Сварщик'
 );
 
-INSERT INTO professions(profession) (
+INSERT INTO professions(profession) VALUES (
 	'Повар'
 );
 
-INSERT INTO professions(profession) (
+INSERT INTO professions(profession) VALUES (
 	'Супервайзер'
 );
 
-INSERT INTO professions(profession) (
+INSERT INTO professions(profession) VALUES (
 	'Мерчандайзер'
 );
 
@@ -112,7 +112,7 @@ INSERT INTO unemployed_education(unemployed_id, edu_inst_id, finish_year) VALUES
 
 INSERT INTO unemployed_education(unemployed_id, edu_inst_id, finish_year) VALUES (
 	1,
-	4,
+	3,
 	'2010'
 );
 
