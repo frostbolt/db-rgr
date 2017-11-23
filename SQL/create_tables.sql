@@ -21,12 +21,12 @@ CREATE TABLE edu_inst ( -- Учебные заведения.
 
 CREATE TABLE companies ( -- Компании.
 	id INTEGER PRIMARY KEY ASC,
-	company_title VARCHAR(50) NOT NULL,
+	company_title VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE professions ( -- Профессии.
 	id INTEGER PRIMARY KEY ASC,
-	profession VARCHAR(50) NOT NULL,
+	profession VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE unemployed_education ( -- Сведения об образовании.
