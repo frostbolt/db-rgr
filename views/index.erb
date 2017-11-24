@@ -1,0 +1,31 @@
+<form id="search_form" action="/search">
+	<h3>Поиск анкет</h3>
+	<label>Профессия:
+		<select name="profession">
+			<option value="0">--ЛЮБАЯ--</option>
+			<% @criteria['professions'].each do |k, v| %>
+			<option value="<%=k%>"><%=v%></option>
+			<% end %>
+		</select>
+	</label>
+	<label>Специальность:
+		<select name="spetiality">
+			<option value="0">--ЛЮБАЯ--</option>
+			<% @criteria['specialties'].each do |k, v| %>
+			<option value="<%=k%>"><%=v%></option>
+			<% end %>
+		</select>
+	</label>
+	<label>Предыдущая должность:
+		<select name="position">
+			<option value="0">--ЛЮБАЯ--</option>
+			<% @criteria['specialties'].each do |k, v| %>
+			<option value="<%=k%>"><%=v%></option>
+			<% end %>
+		</select>
+	</label>
+	<div>
+		<input type="submit" value="Поиск">
+	</div>
+</form>
+	

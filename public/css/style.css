@@ -1,3 +1,33 @@
 body {
-	background-color: eee;
+	/* background-color: #eee; */
 }
+
+.wrapper {
+	width: 600px;
+	margin: 0 auto;
+	padding: 20px 0;
+}
+
+form {
+	padding: 20px 30px;
+	background-color: #eee;
+}
+
+form h3 {
+	text-align: center;
+}
+
+form div:last-child {
+	text-align: center;
+	padding: 10px 0;
+}
+
+label {
+	padding: 10px 0;
+	display: block;
+}
+select {
+	width: 100%;
+	display: block;
+}
+
