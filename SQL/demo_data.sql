@@ -92,24 +92,42 @@ INSERT INTO professions(profession) VALUES (
 
 -- Специальности
 
-INSERT INTO professions(profession) VALUES (
+INSERT INTO specialties(specialty_title) VALUES (
 	'Прикладная математика'
 );
 
-INSERT INTO professions(profession) VALUES (
+INSERT INTO specialties(specialty_title) VALUES (
 	'Медицина катастроф'
 );
 
-INSERT INTO professions(profession) VALUES (
+INSERT INTO specialties(specialty_title) VALUES (
 	'Кораблестроение'
 );
 
-INSERT INTO professions(profession) VALUES (
+INSERT INTO specialties(specialty_title) VALUES (
 	'Строительство'
 );
 
-INSERT INTO professions(profession) VALUES (
+INSERT INTO specialties(specialty_title) VALUES (
 	'Управление качеством'
+);
+
+-- Должности
+
+INSERT INTO positions(position_title) VALUES (
+	'Сортировщик писем'
+);
+
+INSERT INTO positions(position_title) VALUES (
+	'Переносчик бумажек'
+);
+
+INSERT INTO positions(position_title) VALUES (
+	'Ревизорро'
+);
+
+INSERT INTO positions(position_title) VALUES (
+	'Секретарь'
 );
 
 -- Связи: Образование безработных
@@ -144,36 +162,36 @@ INSERT INTO unemployed_education(unemployed_id, edu_inst_id, specialty_id, finis
 
 -- Связи: Места работы безработных
 
-INSERT INTO unemployed_career(unemployed_id, company_id, date_from, date_until, position) VALUES (
+INSERT INTO unemployed_career(unemployed_id, company_id, date_from, date_until, position_id) VALUES (
 	1,
 	1,
 	'2000-11-11',
 	'2015-10-11',
-	'Сортировщик писем'
+	1
 );
 
-INSERT INTO unemployed_career(unemployed_id, company_id, date_from, date_until, position) VALUES (
+INSERT INTO unemployed_career(unemployed_id, company_id, date_from, date_until, position_id) VALUES (
 	1,
 	2,
 	'2015-12-11',
 	'2017-11-12',
-	'Переносчик бумажек'
+	2
 );
 
-INSERT INTO unemployed_career(unemployed_id, company_id, date_from, date_until, position) VALUES (
+INSERT INTO unemployed_career(unemployed_id, company_id, date_from, date_until, position_id) VALUES (
 	2,
 	3,
 	'2007-10-10',
 	'2017-12-12',
-	'Ревизорро'
+	3
 );
 
-INSERT INTO unemployed_career(unemployed_id, company_id, date_from, date_until, position) VALUES (
+INSERT INTO unemployed_career(unemployed_id, company_id, date_from, date_until, position_id) VALUES (
 	3,
 	4,
 	'2008-10-10',
 	'2017-12-12',
-	'Секретарь'
+	4
 );
 
 -- Связи: Профессии безработных

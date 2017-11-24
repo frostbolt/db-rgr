@@ -1,7 +1,7 @@
 PRAGMA foreign_keys = on;
 
 CREATE TABLE unemployed ( -- Безработные.
-	id INT PRIMARY KEY ASC,
+	id INTEGER PRIMARY KEY ASC,
 	first_name VARCHAR(15) NOT NULL,
 	last_name VARCHAR(20) NOT NULL,
 	second_name VARCHAR(20) NOT NULL,
@@ -15,29 +15,35 @@ CREATE TABLE unemployed ( -- Безработные.
 );
 
 CREATE TABLE edu_inst ( -- Учебные заведения.
-	id INT PRIMARY KEY ASC,
+	id INTEGER PRIMARY KEY ASC,
 	title VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE companies ( -- Компании.
-	id INT PRIMARY KEY ASC,
+	id INTEGER PRIMARY KEY ASC,
 	company_title VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE professions ( -- Профессии.
-	id INT PRIMARY KEY ASC,
+	id INTEGER PRIMARY KEY ASC,
 	profession VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE specialties ( -- Специальности
-	id INT PRIMARY KEY ASC,
-	specialty_title VARCHAR(50) NOT NULL
+CREATE TABLE specialties ( -- Специальности.
+	id INTEGER PRIMARY KEY ASC,
+	specialty_title VARCHAR(100) NOT NULL
 );
 
+CREATE TABLE positions ( -- Должности.
+	id INTEGER PRIMARY KEY ASC,
+	position_title VARCHAR(50) NOT NULL
+);
+
+
 CREATE TABLE unemployed_education ( -- Сведения об образовании.
-	unemployed_id INT NOT NULL,
-	edu_inst_id INT NOT NULL,
-	specialty_id INT NOT NULL,
+	unemployed_id INTEGER NOT NULL,
+	edu_inst_id INTEGER NOT NULL,
+	specialty_id INTEGER NOT NULL,
 	finish_year VARCHAR(4) NOT NULL,
 	FOREIGN KEY (unemployed_id) REFERENCES unemployed(id)
 	FOREIGN KEY (edu_inst_id) REFERENCES edu_inst(id)
@@ -45,18 +51,19 @@ CREATE TABLE unemployed_education ( -- Сведения об образован�
 );
 
 CREATE TABLE unemployed_career ( -- Сведения о местах работы безработных.
-	unemployed_id INT NOT NULL,
-	company_id INT NOT NULL,
+	unemployed_id INTEGER NOT NULL,
+	company_id INTEGER NOT NULL,
 	date_from DATE NOT NULL,
 	date_until DATE NOT NULL,
-	position VARCHAR(50) NOT NULL,
+	position_id INTEGER NOT NULL,
 	FOREIGN KEY (unemployed_id) REFERENCES unemployed(id)
 	FOREIGN KEY (company_id) REFERENCES companies(id)
+	FOREIGN KEY (position_id) REFERENCES positions(id)
 );
 
 CREATE TABLE unemployed_professions ( -- Сведения о профессиях безработных.
-	unemployed_id INT NOT NULL,
-	profession_id INT NOT NULL,
+	unemployed_id INTEGER NOT NULL,
+	profession_id INTEGER NOT NULL,
 	FOREIGN KEY (unemployed_id) REFERENCES unemployed(id)
 	FOREIGN KEY (profession_id) REFERENCES professions(id)
 );
