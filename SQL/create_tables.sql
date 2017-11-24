@@ -1,7 +1,7 @@
 PRAGMA foreign_keys = on;
 
 CREATE TABLE unemployed ( -- Безработные.
-	id INTEGER PRIMARY KEY ASC,
+	id INT PRIMARY KEY ASC,
 	first_name VARCHAR(15) NOT NULL,
 	last_name VARCHAR(20) NOT NULL,
 	second_name VARCHAR(20) NOT NULL,
@@ -15,26 +15,33 @@ CREATE TABLE unemployed ( -- Безработные.
 );
 
 CREATE TABLE edu_inst ( -- Учебные заведения.
-	id INTEGER PRIMARY KEY ASC,
+	id INT PRIMARY KEY ASC,
 	title VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE companies ( -- Компании.
-	id INTEGER PRIMARY KEY ASC,
+	id INT PRIMARY KEY ASC,
 	company_title VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE professions ( -- Профессии.
-	id INTEGER PRIMARY KEY ASC,
+	id INT PRIMARY KEY ASC,
 	profession VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE specialties ( -- Специальности
+	id INT PRIMARY KEY ASC,
+	specialty_title VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE unemployed_education ( -- Сведения об образовании.
 	unemployed_id INT NOT NULL,
 	edu_inst_id INT NOT NULL,
+	specialty_id INT NOT NULL,
 	finish_year VARCHAR(4) NOT NULL,
 	FOREIGN KEY (unemployed_id) REFERENCES unemployed(id)
 	FOREIGN KEY (edu_inst_id) REFERENCES edu_inst(id)
+	FOREIGN KEY (specialty_id) REFERENCES specialties(id)
 );
 
 CREATE TABLE unemployed_career ( -- Сведения о местах работы безработных.

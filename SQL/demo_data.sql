@@ -90,29 +90,55 @@ INSERT INTO professions(profession) VALUES (
 	'Мерчандайзер'
 );
 
+-- Специальности
+
+INSERT INTO professions(profession) VALUES (
+	'Прикладная математика'
+);
+
+INSERT INTO professions(profession) VALUES (
+	'Медицина катастроф'
+);
+
+INSERT INTO professions(profession) VALUES (
+	'Кораблестроение'
+);
+
+INSERT INTO professions(profession) VALUES (
+	'Строительство'
+);
+
+INSERT INTO professions(profession) VALUES (
+	'Управление качеством'
+);
+
 -- Связи: Образование безработных
 
-INSERT INTO unemployed_education(unemployed_id, edu_inst_id, finish_year) VALUES (
+INSERT INTO unemployed_education(unemployed_id, edu_inst_id, specialty_id, finish_year) VALUES (
 	2,
 	3,
+	1,
 	'2014'
 );
 
-INSERT INTO unemployed_education(unemployed_id, edu_inst_id, finish_year) VALUES (
+INSERT INTO unemployed_education(unemployed_id, edu_inst_id, specialty_id, finish_year) VALUES (
 	2,
+	1,
 	1,
 	'2010'
 );
 
-INSERT INTO unemployed_education(unemployed_id, edu_inst_id, finish_year) VALUES (
+INSERT INTO unemployed_education(unemployed_id, edu_inst_id, specialty_id, finish_year) VALUES (
 	3,
+	2,
 	2,
 	'2014'
 );
 
-INSERT INTO unemployed_education(unemployed_id, edu_inst_id, finish_year) VALUES (
+INSERT INTO unemployed_education(unemployed_id, edu_inst_id, specialty_id, finish_year) VALUES (
 	1,
 	3,
+	5,
 	'2010'
 );
 
