@@ -14,3 +14,10 @@ get '/' do
 	erb :index
 end
 
+
+get '/search' do
+	@search_results = search(params)
+	halt 400, erb(:error) if @search_results == 0
+	@PAGE_TITLE = "Результаты поиска"
+	erb :search_results
+end
