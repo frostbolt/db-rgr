@@ -19,7 +19,7 @@
 	<label>Предыдущая должность:
 		<select name="position">
 			<option value="0">--ЛЮБАЯ--</option>
-			<% @criteria['specialties'].each do |k, v| %>
+			<% @criteria['positions'].each do |k, v| %>
 			<option value="<%=k%>"><%=v%></option>
 			<% end %>
 		</select>

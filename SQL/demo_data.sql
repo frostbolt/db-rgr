@@ -70,23 +70,23 @@ INSERT INTO companies(company_title) VALUES (
 
 -- Профессии
 
-INSERT INTO professions(profession) VALUES (
+INSERT INTO professions(profession_title) VALUES (
 	'Логист'
 );
 
-INSERT INTO professions(profession) VALUES (
+INSERT INTO professions(profession_title) VALUES (
 	'Сварщик'
 );
 
-INSERT INTO professions(profession) VALUES (
+INSERT INTO professions(profession_title) VALUES (
 	'Повар'
 );
 
-INSERT INTO professions(profession) VALUES (
+INSERT INTO professions(profession_title) VALUES (
 	'Супервайзер'
 );
 
-INSERT INTO professions(profession) VALUES (
+INSERT INTO professions(profession_title) VALUES (
 	'Мерчандайзер'
 );
 

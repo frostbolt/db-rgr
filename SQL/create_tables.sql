@@ -26,7 +26,7 @@ CREATE TABLE companies ( -- Компании.
 
 CREATE TABLE professions ( -- Профессии.
 	id INTEGER PRIMARY KEY ASC,
-	profession VARCHAR(50) NOT NULL
+	profession_title VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE specialties ( -- Специальности.
@@ -38,7 +38,6 @@ CREATE TABLE positions ( -- Должности.
 	id INTEGER PRIMARY KEY ASC,
 	position_title VARCHAR(50) NOT NULL
 );
-
 
 CREATE TABLE unemployed_education ( -- Сведения об образовании.
 	unemployed_id INTEGER NOT NULL,
