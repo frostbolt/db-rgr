@@ -1,220 +1,164 @@
--- Безработные 
+-- УСЛУГИ
 
-INSERT INTO unemployed(first_name, last_name, second_name, sex, birthdate, address, phone, married, has_children) VALUES (
+INSERT INTO services(description, price) VALUES (
+	'Выезд специалиста',
+	300
+), (
+	'Определение неисправностей',
+	400
+), (
+	'Диагностика ПК или жёсткого диска',
+	400
+), (
+	'Доставка мелкогабаритного груза',
+	400
+), (
+	'Обновление антивирусных баз',
+	400
+), (
+	'Полное устранение вирусов и восстановление работоспособности компьютера',
+	1000
+), (
+	'Настройка MS Internet Explorer (Mozilla FireFox, Opera)',
+	500
+), (
+	'Подключение и настройка доступа в Интернет',
+	800
+), (
+	'Настройка почтовых программ',
+	500
+), (
+	'Восстановление данных при разрушении файловой системы',
+	1500
+), (
+	'Запись информации на CD или DVD без стоимости диска',
+	300
+), (
+	'Чистка системного блока от пыли',
+	500
+), (
+	'Сборка компьютера из комплектующих заказчика',
+	2500
+);
+
+-- КЛИЕНТЫ
+
+INSERT INTO clients(first_name, second_name, last_name, organisation, address, phone) VALUES (
 	'Иван',
-	'Иванов',
 	'Иванович',
-	'м',
-	'1990-11-11',
-	'г. Москва у. Пушкина д. Колотушкина',
-	'89123456789',
+	'Иванов',
+	'Газпром',
+	'393923, г. Верхний Услон, ул. Строителей, дом 49, квартира 211',
+	'8 (944) 851-97-39'
+), (
+	'Баранов',
+	'Тимофей',
+	'Анатольевич',
+	'1',
+	'646632, г. Фершампенуаз, ул. Гайдара, дом 94, квартира 135',
+	'8 (918) 831-44-51'
+), (
+	'Байков',
+	'Ермил',
+	'Борисович',
+	'1',
+	'172418, г. Кунашак, ул. Заречная, дом 67, квартира 52',
+	'8 (917) 692-51-67'
+), (
+	'Затулина',
+	'Людмила',
+	'Аркадьевна',
+	'1',
+	'453164, г. Заповедное, ул. Автомоторная, дом 31, квартира 60',
+	'8 (944) 314-78-98'
+), (
+	'Осипов',
+	'Ярополк',
+	'Станиславович',
+	'1',
+	'662349, г. Юкаменское, ул. Вагжанова, дом 46, квартира 205',
+	'8 (960) 484-44-75'
+);
+
+-- ЗАКАЗЫ
+
+INSERT INTO orders(client_id, description, order_date, deadline) VALUES (
 	1,
-	1
-);
-
-INSERT INTO unemployed(first_name, last_name, second_name, sex, birthdate, address, phone, married, has_children) VALUES (
-	'Марина',
-	'Иванова',
-	'Геннадьевна',
-	'ж',
-	'1991-12-12',
-	'г. Москва у. Пушкина д. Колотушкина',
-	'89123456789',
-	1,
-	1
-);
-
-INSERT INTO unemployed(first_name, last_name, second_name, sex, birthdate, address, phone, married, has_children) VALUES (
-	'Виктор',
-	'Петров',
-	'Семенович',
-	'м',
-	'1999-10-10',
-	'г. Москва у. Пушкина д. Колотушкина',
-	'89123456789',
-	0,
-	0
-);
-
--- Учебные заведения
-
-INSERT INTO edu_inst(title) VALUES (
-	'МБОУ СШ №35'
-);
-
-INSERT INTO edu_inst(title) VALUES (
-	'Университет Всего И Вся'
-);
-
-INSERT INTO edu_inst(title) VALUES (
-	'САФУ'
-);
-
--- Компании
-
-INSERT INTO companies(company_title) VALUES (
-	'Почта России'
-);
-
-INSERT INTO companies(company_title) VALUES (
-	'Росстат'
-);
-
-INSERT INTO companies(company_title) VALUES (
-	'СЭС'
-);
-
-INSERT INTO companies(company_title) VALUES (
-	'Мерия'
-);
-
--- Профессии
-
-INSERT INTO professions(profession_title) VALUES (
-	'Логист'
-);
-
-INSERT INTO professions(profession_title) VALUES (
-	'Сварщик'
-);
-
-INSERT INTO professions(profession_title) VALUES (
-	'Повар'
-);
-
-INSERT INTO professions(profession_title) VALUES (
-	'Супервайзер'
-);
-
-INSERT INTO professions(profession_title) VALUES (
-	'Мерчандайзер'
-);
-
--- Специальности
-
-INSERT INTO specialties(specialty_title) VALUES (
-	'Прикладная математика'
-);
-
-INSERT INTO specialties(specialty_title) VALUES (
-	'Медицина катастроф'
-);
-
-INSERT INTO specialties(specialty_title) VALUES (
-	'Кораблестроение'
-);
-
-INSERT INTO specialties(specialty_title) VALUES (
-	'Строительство'
-);
-
-INSERT INTO specialties(specialty_title) VALUES (
-	'Управление качеством'
-);
-
--- Должности
-
-INSERT INTO positions(position_title) VALUES (
-	'Сортировщик писем'
-);
-
-INSERT INTO positions(position_title) VALUES (
-	'Переносчик бумажек'
-);
-
-INSERT INTO positions(position_title) VALUES (
-	'Ревизорро'
-);
-
-INSERT INTO positions(position_title) VALUES (
-	'Секретарь'
-);
-
--- Связи: Образование безработных
-
-INSERT INTO unemployed_education(unemployed_id, edu_inst_id, specialty_id, finish_year) VALUES (
+	'что-то нажал и всё исчезло',
+	'2017-12-19',
+	'2017-12-19'
+), (
 	2,
+	'просил проверить на вирусы',
+	'2017-12-19',
+	'2017-12-19'
+), (
 	3,
-	1,
-	'2014'
-);
-
-INSERT INTO unemployed_education(unemployed_id, edu_inst_id, specialty_id, finish_year) VALUES (
-	2,
-	1,
-	1,
-	'2010'
-);
-
-INSERT INTO unemployed_education(unemployed_id, edu_inst_id, specialty_id, finish_year) VALUES (
-	3,
-	2,
-	2,
-	'2014'
-);
-
-INSERT INTO unemployed_education(unemployed_id, edu_inst_id, specialty_id, finish_year) VALUES (
-	1,
-	3,
-	5,
-	'2010'
-);
-
--- Связи: Места работы безработных
-
-INSERT INTO unemployed_career(unemployed_id, company_id, date_from, date_until, position_id) VALUES (
-	1,
-	1,
-	'2000-11-11',
-	'2015-10-11',
-	1
-);
-
-INSERT INTO unemployed_career(unemployed_id, company_id, date_from, date_until, position_id) VALUES (
-	1,
-	2,
-	'2015-12-11',
-	'2017-11-12',
-	2
-);
-
-INSERT INTO unemployed_career(unemployed_id, company_id, date_from, date_until, position_id) VALUES (
-	2,
-	3,
-	'2007-10-10',
-	'2017-12-12',
-	3
-);
-
-INSERT INTO unemployed_career(unemployed_id, company_id, date_from, date_until, position_id) VALUES (
-	3,
+	'предоплатил 800р.',
+	'2017-12-19',
+	'2017-12-19'
+), (
 	4,
-	'2008-10-10',
-	'2017-12-12',
-	4
+	'звонить с 9 до 12',
+	'2017-12-19',
+	'2017-12-19'
+), (
+	5,
+	'установить последнюю версию почтовой программы',
+	'2017-12-19',
+	'2017-12-19'
 );
 
--- Связи: Профессии безработных
-
-INSERT INTO unemployed_professions(unemployed_id, profession_id) VALUES (
+-- Выполненная работа 
+INSERT INTO work_performed(service_id, order_id) VALUES (
 	1,
 	1
-);
-
-INSERT INTO unemployed_professions(unemployed_id, profession_id) VALUES (
+), (
 	1,
-	2
-);
-
-INSERT INTO unemployed_professions(unemployed_id, profession_id) VALUES (
+	5
+), (
+	1,
+	9
+), (
+	1,
+	13
+), (
 	2,
-	3
-);
-
-INSERT INTO unemployed_professions(unemployed_id, profession_id) VALUES (
-	3,
 	4
+), (
+	2,
+	8
+), (
+	2,
+	12
+), (
+	3,
+	3
+), (
+	3,
+	2
+), (
+	4,
+	10
+), (
+	4,
+	6
+), (
+	4,
+	4
+), (
+	5,
+	1
+), (
+	5,
+	2
+), (
+	5,
+	3
+), (
+	5,
+	8
+), (
+	5,
+	11
 );
-
-
-
