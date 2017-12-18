@@ -3,15 +3,18 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title> ЦЗ | <%= @PAGE_TITLE %> </title>
-	<link rel="stylesheet" href="css/style.css">
+	<title> Ремонт компьютеров | <%= @PAGE_TITLE %> </title>
+	<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 	<header>
 		<div class="wrapper">
-			<h1> <%= @PAGE_TITLE %> </h1>
+			<h1><%= @PAGE_TITLE %> </h1>
 			<nav>
 				<a href="/">Главная</a>
+				<a href="/orders">Заказы</a>
+				<a href="/clients">Клиенты</a>
+				<a href="/services">Прайс</a>
 			</nav>
 		</div>
 	</header>
@@ -25,5 +28,6 @@
 			Сергей Лущик 2017
 		</div>
 	</footer>
+	<script src="/scripts/main.js"></script>
 </body>
 </html>

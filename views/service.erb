@@ -1,0 +1,6 @@
+<form id="editPriceListElement">
+	<label>Услуга: <input type="text" value="<%=@data[:service][0][1]%>" name="description" id="description"></label>
+	<label>Цена: <input type="text" value="<%=@data[:service][0][2]%>" name="price" id="price"></label>
+	<input id="hidden_id" type="hidden" value="<%=@data[:service][0][0]%>">
+	<input type="submit" value="Применить">
+</form>

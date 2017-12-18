@@ -1,7 +1,13 @@
 body {
 	/* background-color: #eee; */
+	font-size: 18px;
+	font-family: sans-serif;
 }
 
+nav a+a {
+	display: inline-block;
+	margin-left:  10px;
+}
 .wrapper {
 	width: 600px;
 	margin: 0 auto;
@@ -26,8 +32,65 @@ label {
 	padding: 10px 0;
 	display: block;
 }
+
 select {
 	width: 100%;
 	display: block;
 }
 
+.service {
+	padding: 20px;
+	background-color: #eee;
+}
+
+.service p, .service a {
+	margin: 0;
+	font-size: 18px;
+}
+
+.service span {
+	display: block;
+	text-align: right;
+
+}
+
+.service span:after {
+	content: " руб.";
+}
+
+.service + .service {
+	margin-top: 10px;
+}
+
+button, a.button {
+	color: black;
+	font-weight: 400;
+	font-family: sans-serif;
+	text-decoration: none;
+	font-size: 14px;
+	display: inline-block;
+	margin: 4px 0;
+	padding: 4px 6px;
+	cursor: pointer;
+	background: linear-gradient(to bottom, #ccc 0%,#bbb 100%);
+}
+
+button.delete {
+	background: linear-gradient(to bottom, #d1b1b1 0%,#cc8e8e 100%);
+}
+
+button + button {
+	margin-left: 10px;
+}
+
+label {
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+	text-align: right;
+	align-items: center;
+}
+
+input[type="text"] {
+	padding: 5px;
+	margin: 0 10px;
+}
