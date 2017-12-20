@@ -15,11 +15,15 @@ end
 
 get '/orders' do
 	@PAGE_TITLE = "Ремонт компьютеров | Заказы"
+	@data = {}
+	@data[:orders] = all_orders
 	erb :orders
 end
 
 get '/clients' do
 	@PAGE_TITLE = "Ремонт компьютеров | Клиенты"
+	@data = {}
+	@data[:clients] = all_clients
 	erb :clients
 end
 
@@ -32,7 +36,7 @@ end
 
 get '/services/:id' do 
 	halt 404 unless params[:id].numeric?
-	@PAGE_TITLE = "Редактирование элемента прайс-листа"
+	@PAGE_TITLE = "Элемент прайс-листа"
 	@data = {}
 	@data[:service] = service(params[:id])
 	halt 404 if @data[:service] == []
@@ -48,10 +52,24 @@ end
 post '/services/:id' do
 	halt 'Неверный id' unless params[:id].numeric?
 	halt 'Произошла ошибка при попытке отредактировать запись' unless edit_service(params);
-	puts params.inspect
 	'Услуга изменена'
 end
 
+get '/clients/:id' do 
+	halt 'Неверный id' unless params[:id].numeric?
+	@PAGE_TITLE = "Информация о клиенте"
+	@data = {}
+	@data[:client] = client(params[:id])
+	halt 404 if @data[:client] == []
+	@data[:orders] = orders_by_client(params[:id])
+	erb :client
+end
+
+post '/clients/:id' do
+	halt 'Неверный id' unless params[:id].numeric?
+	halt 'Произошла ошибка при попытке отредактировать запись' unless edit_client(params);
+	'Запись изменена'
+end
 
 not_found do
 	@PAGE_TITLE = "Что могло пойти не так? :("

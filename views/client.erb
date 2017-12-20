@@ -1,0 +1,22 @@
+<form id="editClient">
+	<label>Фамилия: <input type="text" value="<%=@data[:client][0][1]%>" name="first_name" id="description"></label>
+	<label>Имя: <input type="text" value="<%=@data[:client][0][2]%>" name="second_name" ></label>
+	<label>Отчество: <input type="text" value="<%=@data[:client][0][3]%>" name="last_name" id="description"></label>
+	<label>Компания: <input type="text" value="<%=@data[:client][0][4]%>" name="organisation" ></label>
+	<label>Адрес: <input type="text" value="<%=@data[:client][0][5]%>" name="address" id="description"></label>
+	<label>Телефон: <input type="text" value="<%=@data[:client][0][6]%>" name="phone" ></label>
+	<input id="hidden_id" type="hidden" value="<%=@data[:client][0][0]%>">
+	<input class="button" type="submit" value="Применить изменения">
+</form>
+
+<h3>История заказов</h3>
+<section id="orders_list">
+	<% for order in @data[:orders] %>
+	<div>
+		<h4>#<%= order[0] %>: <%= order[2] %></h4>
+		<p>Дата начала: <input type="date" name="" id="" disabled value="<%= order[3] %>"></p>
+		<p>Срок сдачи: <input type="date" name="" id="" disabled value="<%= order[4] %>"></p>
+		<a href="/orders/<%= order[0] %>" class="button"> Подробнее о заказе</a>
+	</div>
+	<% end %>
+</section>

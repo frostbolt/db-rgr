@@ -1,0 +1,13 @@
+<section class="clients_list">
+<% if !@data[:clients].nil? %>
+	<% for item in @data[:clients] %>
+		<div class="client">
+			<p class="last_name"><%=item[3]%> </p>
+			<p><%=item[1]%> <%=item[2]%></p>
+			<a class="button" href="/clients/<%=item[0]%>">Подробная информация</a>
+		</div>
+	<% end %>
+<% else %>
+
+<% end %>
+</section>

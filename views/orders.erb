@@ -1,0 +1,11 @@
+<section id="orders_list">
+	<% for order in @data[:orders] %>
+	<div>
+		<h4>#<%= order[0] %>: <%= order[1] %></h4>
+		<p>Дата начала: <input type="date" name="" id="" disabled value="<%= order[2] %>"></p>
+		<p>Срок сдачи: <input type="date" name="" id="" disabled value="<%= order[3] %>"></p>
+		<p><%= order[4] %> <%= order[5] %> <%= order[6] %></p>
+		<a href="/orders/<%= order[0] %>" class="button"> Подробнее о заказе</a>
+	</div>
+	<% end %>
+</section>

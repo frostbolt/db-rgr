@@ -1,14 +1,10 @@
 <section class="services_list">
-<% if !@data[:services].nil? %>
-	<% for item in @data[:services] %>
-		<div class="service">
-			<p><%=item[1]%></p>
-			<a class="button" href="/services/<%=item[0]%>">Редактировать</a>
-			<button class="delete" onclick="deletePriceListElement(<%=item[0]%>);">Удалить</button>
-			<span><%=item[2]%></span>
-		</div>
-	<% end %>
-<% else %>
-	
+<% for item in @data[:services] %>
+	<div class="service">
+		<p><%=item[1]%></p>
+		<a class="button" href="/services/<%=item[0]%>">Редактировать</a>
+		<button class="delete" onclick="deletePriceListElement(<%=item[0]%>);">Удалить</button>
+		<span><%=item[2]%></span>
+	</div>
 <% end %>
 </section>
