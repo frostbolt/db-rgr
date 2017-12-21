@@ -29,8 +29,22 @@ def client(id)
 	@@db.execute("SELECT * FROM clients WHERE id = #{id}")
 end
 
+def order(id) 
+	@@db.execute("SELECT * FROM orders WHERE id = #{id}")
+end
+
 def orders_by_client(id)
 	@@db.execute("SELECT * FROM orders WHERE client_id = #{id}")
+end
+
+def work_performed(id)
+	@@db.execute("""
+		SELECT services.description, services.price, services.id
+		FROM work_performed 
+		LEFT JOIN services ON work_performed.service_id = services.id
+		WHERE work_performed.order_id = #{id}
+		ORDER BY service_id;
+		""")
 end
 
 def delete_service(id)
@@ -67,5 +81,35 @@ def edit_client(params)
 		WHERE id = #{params["id"]};
 	""")
 	return true
+end
 
+def edit_order(params)
+	return false if params.any? { |k, v| v=="" } || @@db.execute("SELECT * FROM orders WHERE id = #{params["id"]}") == []
+	@@db.execute("""
+		UPDATE orders
+		SET description = '#{params["description"]}',
+		order_date = '#{params["order_date"]}',
+		deadline = '#{params["deadline"]}'
+		WHERE id = #{params["id"]}
+	""")
+	return true
+end
+
+def delete_work_performed(params)
+	@@db.execute("""
+		DELETE 
+		FROM work_performed
+		WHERE
+		service_id = #{params["service_id"]}
+		AND
+		order_id = #{params["order_id"]}
+		AND EXISTS (
+			SELECT * FROM work_performed
+			WHERE
+			service_id = #{params["service_id"]}
+			AND
+			order_id = #{params["order_id"]}
+		)
+		LIMIT 1
+		""")
 end

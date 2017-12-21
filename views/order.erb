@@ -1,0 +1,33 @@
+<form id="editOrder">
+	<label>Пояснение к заказу: <input type="text" value="<%=@data[:order][0][2]%>" name="description" id="description"></label>
+	<label>Дата начала:<input type="date" name="order_date" value="<%= @data[:order][0][3] %>"></label>
+	<label>Срок сдачи: <input type="date" name="deadline" value="<%= @data[:order][0][4] %>"></label>
+
+	<input id="hidden_id" type="hidden" value="<%=@data[:order][0][0]%>">
+	<input class="button" type="submit" value="Применить изменения">
+</form>
+
+<h3>Выполненные работы <a href="">[Добавить]</a></h3>
+
+
+
+<table id="performed_work_list">
+<% sum = 0 %>
+<% for service in @data[:work_performed] %>
+	<tr>
+		<td><button onclick="deleteElement(<%= service[2] %>, '/work_performed/<%= @data[:order][0][0] %>/')" class="delete">X</button></td>
+		<td>
+			<%= service[0] %>
+		</td>
+		<td>
+			<% sum += service[1] %>
+			<%= service[1] %>
+		</td>
+	</tr>
+<% end %>
+<tr>
+	<td></td>
+	<td>К оплате:</td>
+	<td><%= sum %></td>
+</tr>
+</table>

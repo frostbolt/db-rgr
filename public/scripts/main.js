@@ -1,9 +1,9 @@
 ////////////////// УДАЛЕНИЕ //////////////////
 
-function deletePriceListElement(id) {
+function deleteElement(id, path) {
 	console.log("Удаление элемента", id)
 	var xhr = new XMLHttpRequest();
-	xhr.open('DELETE', '/services/' + id );
+	xhr.open('DELETE', path + id );
 	xhr.onload = () => {
 		if (xhr.status === 200) {
 			alert(xhr.responseText);
@@ -17,11 +17,13 @@ function deletePriceListElement(id) {
 	xhr.send();
 }
 
+
 ////////////////// РЕДАКТИРОВАНИЕ //////////////////
 
 [
 	[document.getElementById("editPriceListElement"),"/services/"],
-	[document.getElementById("editClient"),"/clients/"]
+	[document.getElementById("editClient"),"/clients/"],
+	[document.getElementById("editOrder"),"/orders/"]
 ].forEach((item,index,array)=>{
 	if (item[0]!=null) item[0].addEventListener("submit", (event)=>{
 		event.preventDefault();

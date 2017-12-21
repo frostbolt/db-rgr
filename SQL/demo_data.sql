@@ -122,6 +122,15 @@ INSERT INTO work_performed(service_id, order_id) VALUES (
 	5,
 	1
 ), (
+	5,
+	1
+), (
+	5,
+	1
+), (
+	5,
+	1
+), (
 	9,
 	1
 ), (

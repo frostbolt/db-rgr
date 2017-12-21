@@ -13,20 +13,6 @@ get '/' do
 	erb :index
 end
 
-get '/orders' do
-	@PAGE_TITLE = "Ремонт компьютеров | Заказы"
-	@data = {}
-	@data[:orders] = all_orders
-	erb :orders
-end
-
-get '/clients' do
-	@PAGE_TITLE = "Ремонт компьютеров | Клиенты"
-	@data = {}
-	@data[:clients] = all_clients
-	erb :clients
-end
-
 get '/services' do
 	@PAGE_TITLE = "Ремонт компьютеров | Прайс"
 	@data = {}
@@ -55,6 +41,13 @@ post '/services/:id' do
 	'Услуга изменена'
 end
 
+get '/clients' do
+	@PAGE_TITLE = "Ремонт компьютеров | Клиенты"
+	@data = {}
+	@data[:clients] = all_clients
+	erb :clients
+end
+
 get '/clients/:id' do 
 	halt 'Неверный id' unless params[:id].numeric?
 	@PAGE_TITLE = "Информация о клиенте"
@@ -69,6 +62,36 @@ post '/clients/:id' do
 	halt 'Неверный id' unless params[:id].numeric?
 	halt 'Произошла ошибка при попытке отредактировать запись' unless edit_client(params);
 	'Запись изменена'
+end
+
+get '/orders' do
+	@PAGE_TITLE = "Ремонт компьютеров | Заказы"
+	@data = {}
+	@data[:orders] = all_orders
+	erb :orders
+end
+
+get '/orders/:id' do
+	halt 'Неверный id' unless params[:id].numeric?
+	@PAGE_TITLE = "Информация о заказе"
+	@data = {}
+	@data[:order] = order(params[:id])
+	halt 404 if @data[:order] == []
+	@data[:work_performed] = work_performed(params[:id])
+	erb :order
+end
+
+post '/orders/:id' do
+	puts params.inspect
+	halt 'Неверный id' unless params[:id].numeric?
+	halt 'Произошла ошибка при попытке отредактировать запись' unless edit_order(params);
+	'Запись изменена'
+end
+
+delete '/work_performed/:order_id/:service_id' do
+	halt "Неверный id" unless params[:order_id].numeric? && params[:service_id].numeric?
+	halt "Эта услуга не может быть удалена, т.к. она используется в записях" unless delete_work_performed(params);
+	'Услуга удалена'
 end
 
 not_found do

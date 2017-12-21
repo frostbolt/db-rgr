@@ -89,14 +89,17 @@ button + button {
 
 label {
 	display: grid;
-	grid-template-columns: 1fr 4fr;
+	grid-template-columns: 2fr 3fr;
+	grid-gap: 10px;
 	text-align: right;
 	align-items: center;
 }
 
-input[type="text"] {
+input {
+	outline: none;
 	padding: 5px;
-	margin: 0 10px;
+	font-size: 12px;
+	// margin: 0 10px;
 }
 
 .clients_list, #orders_list {
@@ -121,4 +124,15 @@ input[type="text"] {
 .last_name {
 	font-weight: 600;
 	font-size: 19pt;
+}
+
+table {
+	width: 100%;
+}
+#performed_work_list tr:last-child {
+	font-weight: 800;
+}
+#performed_work_list tr:last-child td:nth-child(2) {
+	padding-right: 10px;
+	text-align: right;
 }

@@ -3,7 +3,7 @@
 	<div class="service">
 		<p><%=item[1]%></p>
 		<a class="button" href="/services/<%=item[0]%>">Редактировать</a>
-		<button class="delete" onclick="deletePriceListElement(<%=item[0]%>);">Удалить</button>
+		<button class="delete" onclick="deleteElement(<%=item[0]%>, '/services/');">Удалить</button>
 		<span><%=item[2]%></span>
 	</div>
 <% end %>
