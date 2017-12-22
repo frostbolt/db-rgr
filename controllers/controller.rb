@@ -30,7 +30,11 @@ def client(id)
 end
 
 def order(id) 
-	@@db.execute("SELECT * FROM orders WHERE id = #{id}")
+	@@db.execute("
+		SELECT orders.id, orders.description, orders.order_date, orders.deadline,
+		clients.first_name, clients.second_name, clients.last_name, orders.client_id
+		FROM orders LEFT JOIN clients ON orders.client_id = clients.id
+		WHERE orders.id = #{id}")
 end
 
 def orders_by_client(id)
@@ -112,4 +116,76 @@ def delete_work_performed(params)
 		)
 		LIMIT 1
 		""")
+end
+
+def add_work_performed(params)
+	@@db.execute("""
+		INSERT INTO work_performed(service_id, order_id) VALUES (
+			#{params["service_id"]},
+			#{params["id"]}
+		)
+	""")
+end
+
+def delete_order(id)
+	@@db.execute("""
+		DELETE 
+		FROM work_performed
+		WHERE
+		order_id = #{id}
+		AND EXISTS (
+			SELECT * FROM work_performed
+			WHERE
+			order_id = #{id}
+		)
+		""")
+	@@db.execute("""
+		DELETE FROM orders
+		WHERE
+		id = #{params["id"]};
+		AND EXISTS (
+			SELECT * FROM order
+			WHERE 
+			order_id = #{id}
+		)
+		""")
+end
+
+def new_order(params)
+	return false if params.any? { |k, v| v=="" }
+	@@db.execute("""
+		INSERT INTO orders(client_id, description, order_date, deadline)
+		VALUES(
+			#{params['client_id']},
+			'#{params['description']}',
+			'#{params['order_date']}',
+			'#{params['deadline']}'
+		)
+	""")
+end
+
+def new_client(params)
+	return false if params.any? { |k, v| v=="" }
+	@@db.execute("""
+		INSERT INTO clients(first_name, second_name, last_name, organisation, address, phone)
+		VALUES(
+			'#{params['first_name']}',
+			'#{params['second_name']}',
+			'#{params['last_name']}',
+			'#{params['organisation']}',
+			'#{params['address']}',
+			'#{params['phone']}'
+		)
+	""")
+end
+
+def new_service(params)
+	return false if params.any? { |k, v| v=="" } || params["price"].to_i < 0.01 || !params["price"].numeric?
+	@@db.execute("""
+		INSERT INTO services(description, price)
+		VALUES(
+			'#{params['description']}',
+			#{params['price']}
+		)
+	""")
 end

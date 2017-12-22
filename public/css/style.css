@@ -71,7 +71,7 @@ button, .button {
 	font-weight: 400;
 	font-family: sans-serif;
 	text-decoration: none;
-	font-size: 14px;
+	font-size: 14px !important;
 	display: inline-block;
 	margin: 4px 0;
 	padding: 5px 11px;
@@ -135,4 +135,11 @@ table {
 #performed_work_list tr:last-child td:nth-child(2) {
 	padding-right: 10px;
 	text-align: right;
+}
+
+#add_performed_work {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: 1fr 120px;
+	align-items: center;
 }

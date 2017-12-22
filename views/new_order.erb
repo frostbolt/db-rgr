@@ -1,0 +1,16 @@
+<form id="createOrder">
+	<label>Пояснение к заказу: <input type="text"  name="description" id="description"></label>
+	<label>Дата начала:<input type="date" value="<%= "#{Time.now.year}-#{Time.now.month}-#{Time.now.day}" %>" name="order_date"></label>
+	<label>Срок сдачи: <input type="date" value="<%= "#{Time.now.year}-#{Time.now.month}-#{Time.now.day}" %>" name="deadline"></label>
+	<label>
+		ФИО клиента:
+		<select name="client_id" >
+			<% if !@data[:clients].blank? %>
+				<% for client in @data[:clients] %>
+					<option value="<%= client[0] %>"><%= client[1] %> <%= client[2] %> <%= client[3] %></option>
+				<% end %>
+			<% end %>
+		</select>
+	</label>
+	<input class="button" type="submit" value="Добавить">
+</form>

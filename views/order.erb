@@ -2,15 +2,28 @@
 	<label>Пояснение к заказу: <input type="text" value="<%=@data[:order][0][2]%>" name="description" id="description"></label>
 	<label>Дата начала:<input type="date" name="order_date" value="<%= @data[:order][0][3] %>"></label>
 	<label>Срок сдачи: <input type="date" name="deadline" value="<%= @data[:order][0][4] %>"></label>
-
+	<label>Клиент:<p style="text-align: left;"><a href="/clients/<%= @data[:order][0][7] %>"><%= @data[:order][0][4] %> <%= @data[:order][0][5] %> <%= @data[:order][0][6] %></a></p></label>
 	<input id="hidden_id" type="hidden" value="<%=@data[:order][0][0]%>">
 	<input class="button" type="submit" value="Применить изменения">
 </form>
 
-<h3>Выполненные работы <a href="">[Добавить]</a></h3>
+<div style="text-align: center;"><br><button onclick="deleteElement(<%=@data[:order][0][0]%>,'/orders/');" class="button delete">Удалить заказ</button></div>
 
+<%= @data %>
 
-
+<h3>Выполненные работы</h3>
+<% unless @data == nil %>
+	<% unless @data[:services].blank? || @data[:order].blank? %>
+	<form id="add_performed_work">
+		<select name="service_id" id="">
+				<% for service in @data[:services] %>
+					<option value="<%= service[0] %>"><%= service[1] %></option>
+				<% end %>					
+		</select>
+		<input type="submit" class="button" value="Добавить">
+	</form>
+	<% end %>
+<% end %>
 <table id="performed_work_list">
 <% sum = 0 %>
 <% for service in @data[:work_performed] %>
