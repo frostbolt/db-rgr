@@ -189,3 +189,24 @@ def new_service(params)
 		)
 	""")
 end
+
+def report(month)
+
+	@@db.execute("""SELECT * FROM (
+	SELECT SUM(price) as sigma, un.order_id as order_id, un.description as description, un.order_date as order_date
+	FROM (
+		SELECT orders.description, work.order_id, work.price, orders.order_date as order_date
+		FROM orders
+		LEFT JOIN (
+			SELECT work_performed.order_id, services.price
+			FROM work_performed
+			LEFT JOIN services
+			ON services.id = work_performed.service_id
+		) AS work
+		ON work.order_id = orders.id
+	) AS un	
+	GROUP BY order_id
+	)
+	WHERE strftime('%m', order_date) = '#{month}';""")
+
+end

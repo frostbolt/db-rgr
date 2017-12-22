@@ -1,0 +1,21 @@
+
+<table>
+	<tr>
+		<th></th>
+		<th>Описание</th>
+		<th>Дата приъема</th>
+		<th>К&nbsp;оплате</th>
+	</tr>
+	<% if !@data[:report].blank? %>
+		<% for item in @data[:report] %>
+			<tr>
+				<td><a href="/orders/<%= item[1] %>">#<%= item[1] %></a></td>
+				<td><%=  item[2] %></td>
+				<td><%=  item[3] %></td>
+				<td><%=  item[0] %></td>
+			</tr>
+		<% end %>
+	<% else %>
+		
+	<% end %>
+</table>

@@ -147,6 +147,16 @@ post '/add/performed_work/:id' do
 	'Запись добавлена'
 end
 
+get '/report' do
+	@PAGE_TITLE = "Отчет"
+	halt 404 unless params[:month].numeric? && params[:month].to_i <= 12 && params[:month].to_i > 0
+	@data = {}
+	@data[:report] = report(params[:month])
+	# data[:orders] = orders_by_month(params[:month])
+	erb :report
+end
+
+
 not_found do
 	@PAGE_TITLE = "Что могло пойти не так? :("
 	erb :error
